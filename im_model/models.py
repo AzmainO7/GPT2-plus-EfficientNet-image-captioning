@@ -135,6 +135,8 @@ class encoder(tf.keras.Model):
         h = self.pre_emb(h)
 
         h = self.pos(h) + h
+
+        print("in call h:", h)
         
         for i in range(self.n_layer):
             h, present = self._block[i](x = h, past = None,y = None)
