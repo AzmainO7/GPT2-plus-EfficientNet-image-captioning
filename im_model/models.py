@@ -32,17 +32,17 @@ class model(tf.keras.Model):
         self.train = train
         
         self.wpe = self.add_weight("wpe", 
-                                     shape = [n_ctx, n_embd], 
+                                     shape = (n_ctx, n_embd), 
                                      initializer = tf.random_normal_initializer(stddev=0.01, seed=None),
                                      trainable = emb_train)
         
         self.wte = self.add_weight("wte", 
-                                     shape = [n_vocab, n_embd], 
+                                     shape = (n_vocab, n_embd), 
                                      initializer = tf.random_normal_initializer(stddev=0.01, seed=None),
                                      trainable = emb_train)
         
         self.wsp = self.add_weight("wsp", 
-                                     shape = [n_spe, n_embd], 
+                                     shape = (n_spe, n_embd), 
                                      initializer = tf.random_normal_initializer(stddev=0.01, seed=None),
                                      trainable = True)
         
