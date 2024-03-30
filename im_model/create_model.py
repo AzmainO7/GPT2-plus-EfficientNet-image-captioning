@@ -21,7 +21,9 @@ def create_model(efficient_net = None,hparams = None,emb_train = False,train = T
     
     enc_ = md.encoder(n_ctx = enc_inp.shape[1]*enc_inp.shape[2],train = train,n_embd = hparams["n_embd"],
                       n_layer = encoder_layers,n_head = encoder_head)
-    
+
+    print("enc_inp1: ",enc_inp.shape[1])
+    print("enc_inp2: ",enc_inp.shape[2])
     enc_outp = enc_(enc_inp)
     enc = tf.keras.Model(inputs=[inp_img], outputs=[enc_outp])
     
