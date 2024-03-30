@@ -68,9 +68,11 @@ class PositionEmbedding(tf.keras.layers.Layer):
     width = dimension_list[-1]
     weight_sequence_length = self._max_length
 
+    print(weight_sequence_length, width)
+
     self._position_embeddings = self.add_weight(
         "embeddings",
-        shape=[weight_sequence_length, width],
+        shape=(weight_sequence_length, width),
         initializer=self._initializer)
 
     super().build(input_shape)
